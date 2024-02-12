@@ -1,83 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://cdn.jsdelivr.net/npm/daisyui@3.7.3/dist/full.css" rel="stylesheet" type="text/css">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://unpkg.com/htmx.org"></script>
-  <script src="https://unpkg.com/htmx.org/dist/ext/client-side-templates.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/nunjucks@3.2.4/browser/nunjucks.min.js"></script>
-  <script>
-    // CORS workaround for htmx requests
-    document.addEventListener("htmx:configRequest", (evt) => {
-      evt.detail.headers = [];
-    });
-  </script>
   <title>Advanced Operating Systems Course</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f0f2f5;
+      color: #333;
+    }
+    .navbar {
+      background-color: #005A87;
+      color: #fff;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .navbar a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 20px;
+    }
+    .hero {
+      background-color: #007BFF;
+      color: #fff;
+      text-align: center;
+      padding: 50px 20px;
+    }
+    .hero h1 {
+      margin: 0;
+      font-size: 2.5em;
+    }
+    .hero p {
+      font-size: 1.2em;
+    }
+    .content {
+      padding: 20px;
+    }
+    .module {
+      background-color: #fff;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      margin: 20px 0;
+      padding: 20px;
+      border-radius: 8px;
+      transition: transform 0.2s ease-in-out;
+    }
+    .module:hover {
+      transform: translateY(-5px);
+    }
+    .footer {
+      background-color: #003545;
+      color: #fff;
+      text-align: center;
+      padding: 10px;
+      position: relative;
+      bottom: 0;
+      width: 100%;
+    }
+  </style>
 </head>
+<body>
 
-<body class="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 font-sans">
+<div class="navbar">
+  <div>Advanced OS Course</div>
+  <nav>
+    <a href="#course-overview">Overview</a>
+    <a href="#modules">Modules</a>
+    <a href="#resources">Resources</a>
+  </nav>
+</div>
 
-  <header class="bg-opacity-90 backdrop-filter backdrop-blur-lg py-6">
-    <div class="container mx-auto flex justify-between items-center">
-      <h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white">Advanced Operating Systems Course</h1>
-      <nav>
-        <ul class="flex space-x-4">
-          <li><a href="/" class="hover:text-gray-300 text-white">Home</a></li>
-          <li><a href="#course-content" class="hover:text-gray-300 text-white">Course Content</a></li>
-          <li><a href="#resources" class="hover:text-gray-300 text-white">Resources</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+<div class="hero">
+  <h1 class="animate__animated animate__fadeInDown">Dive Into System-Level Programming</h1>
+  <p>Explore the intricacies of operating systems with our advanced course.</p>
+</div>
 
-  <section id="hero" class="bg-gray-900 text-white py-16">
-    <div class="container mx-auto text-center">
-      <h2 class="text-4xl lg:text-5xl font-semibold mb-4">Dive Deep into Operating Systems</h2>
-      <p class="text-lg lg:text-xl text-gray-300 leading-7 mb-8">Master the complexities of modern operating systems, from concurrency control to distributed systems and beyond.</p>
-      <a href="#course-content"
-        class="bg-blue-500 text-white px-8 py-3 rounded-full hover:bg-blue-700 transition duration-300">Explore the Course</a>
-    </div>
-  </section>
+<div class="content" id="course-overview">
+  <h2>Course Overview</h2>
+  <p>Our Advanced Operating Systems course covers everything from kernel development to distributed systems. Designed for students with a solid foundation in computer science, this course will challenge you to think deeply about software and hardware integration.</p>
+</div>
 
-  <section id="course-content" class="bg-gray-100 py-16">
-    <div class="container mx-auto text-center">
-      <h2 class="text-3xl lg:text-4xl font-semibold mb-6 text-gray-800">Course Modules</h2>
-      <p class="text-lg lg:text-xl text-gray-700 mb-6">A comprehensive curriculum designed for in-depth understanding of operating systems.</p>
-      <!-- Dynamic content could be added here similar to the transcription example -->
-    </div>
-  </section>
+<div class="content" id="modules">
+  <h2>Course Modules</h2>
+  <div class="module animate__animated animate__zoomIn">
+    <h3>Module 1: Kernel Programming</h3>
+    <p>Introduction to kernel programming, including kernel module development and system calls.</p>
+  </div>
+  <div class="module animate__animated animate__zoomIn">
+    <h3>Module 2: Concurrency</h3>
+    <p>Explore process synchronization, threading, and parallel computing concepts.</p>
+  </div>
+  <!-- Add more modules as needed -->
+</div>
 
-  <section id="resources" class="bg-gray-800 text-white py-16">
-    <div class="container mx-auto text-center">
-      <h2 class="text-3xl lg:text-4xl font-semibold mb-12">Additional Resources</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <!-- Resource 1 -->
-        <div class="p-8 bg-white bg-opacity-70 rounded-lg shadow-md">
-          <h3 class="text-2xl font-semibold mb-4 text-gray-800">OS Research Papers</h3>
-          <p class="text-gray-700">Dive into the latest research and developments in the field of operating systems.</p>
-        </div>
-        <!-- Resource 2 -->
-        <div class="p-8 bg-white bg-opacity-70 rounded-lg shadow-md">
-          <h3 class="text-2xl font-semibold mb-4 text-gray-800">Virtual Lab</h3>
-          <p class="text-gray-700">Access our virtual lab for hands-on experiments with operating systems concepts.</p>
-        </div>
-        <!-- Resource 3 -->
-        <div class="p-8 bg-white bg-opacity-70 rounded-lg shadow-md">
-          <h3 class="text-2xl font-semibold mb-4 text-gray-800">Community Forums</h3>
-          <p class="text-gray-700">Join discussions, ask questions, and collaborate with peers and instructors.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+<div class="content" id="resources">
+  <h2>Additional Resources</h2>
+  <p>Find a curated list of resources to complement your learning experience, including textbooks, research papers, and online forums.</p>
+</div>
 
-  <footer class="bg-gray-900 text-white py-6">
-    <div class="container mx-auto text-center">
-      <p>&copy; 2024 Advanced Operating Systems Course. All Rights Reserved.</p>
-    </div>
-  </footer>
+<div class="footer">
+  &copy; 2024 Advanced Operating Systems Course. All rights reserved.
+</div>
+
 </body>
-
 </html>
